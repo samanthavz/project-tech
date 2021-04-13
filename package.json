@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Matching app for school",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'no tests defined' && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Samantha van Zandwijk",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^6.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
