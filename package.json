@@ -1,7 +1,9 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "Matching app for school",
+  "description": "Matching app for project-tech",
+  "homepage": "",
+  "repository": "https://github.com/samanthavz/project-tech",
   "main": "index.js",
   "scripts": {
     "test": "echo 'no tests defined' && exit 1",
@@ -15,5 +17,11 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
-  }
+  },
+  "keywords": [
+    "matching",
+    "app",
+    "backend",
+    "project-tech"
+  ]
 }
