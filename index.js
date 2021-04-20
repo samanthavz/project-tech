@@ -11,6 +11,11 @@ app.get('/test', (req, res) => {
   res.send('This is a test')
 })
 
+//adding an id
+app.get('/test/:testId/:slug', (req, res) => {
+  res.send(`<h1> this is page for ${req.params.slug}</h1>`)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
