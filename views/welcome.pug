@@ -6,7 +6,8 @@ html
     if(user)
         p Welcome #{user.name} to my doggo matching app
     else
-        a(href = "/sign_up") Sign Up
+        //- a(href = "/sign_up") Sign Up
+        +link('/welcome', 'Sign up')(class="")
     include includes/footer.pug
     script
         include ../static/public/scripts/script.js 
