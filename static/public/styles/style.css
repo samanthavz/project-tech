@@ -1,3 +1,10 @@
 body {
     color: red;
 }
+
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+}

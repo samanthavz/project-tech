@@ -1,0 +1,12 @@
+doctype html
+html
+  include includes/head.pug
+  body
+    h1 Welcome
+    if(user)
+        p Welcome #{user.name} to my doggo matching app
+    else
+        a(href = "/sign_up") Sign Up
+    include includes/footer.pug
+    script
+        include ../static/public/scripts/script.js 

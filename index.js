@@ -9,7 +9,7 @@ const port = 3000
 app.set('view engine', 'pug');
 
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Doggo app', message: 'This is my matching app' })
+  res.render('welcome', { title: 'Doggo app', message: 'This is my matching app' })
 })
 
 
@@ -27,8 +27,14 @@ app.get('/home', (req, res) => {
   res.render('home', { title: 'Doggo app', message: 'This is my home page' })
 });
 
-app.get('/list', (req, res) => {
-  res.render('index', { title: 'Doggo app', message: 'This is a list page for like doggos' })
+app.get('/matches', (req, res) => {
+  res.render('matches', { title: 'Doggo app', message: 'This is a list page for like doggos' })
+});
+
+app.get('/welcome', (req, res) => {
+  res.render('welcome', { 
+    user: {name: "visitor"}
+   })
 });
 
 
