@@ -28,7 +28,7 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/matches', (req, res) => {
-  res.render('matches', { title: 'Doggo app', message: 'This is a list page for like doggos' })
+  res.render('matches', { title: 'Doggo app', message: 'This is a list page for liked doggos' })
 });
 
 app.get('/welcome', (req, res) => {
