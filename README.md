@@ -1,8 +1,19 @@
-# 📃 description
+# 🐶 DoggoSwipe
 
-Welcome! This is my code for my school project: project-tech. I am making a matching app for dogs and owners. Feel free to look around or check out my wiki for more info! (written in dutch)
+Welcome! This is my code for my school project: project-tech. During this project I will be making one interaction for the DoggoSwipe app. Feel free to look around or check out my [wiki](https://github.com/samanthavz/project-tech/wiki) for more info! (written in dutch).
+
+# 📃 description and concept
+
+ I am making an interaction for a matching app. The concept is like a tinder for dogs and owners. Dogs that have a hard time finding an owner can be signed up by the dog shelter. The next step is for users to start swiping. When they see a dog they like, they can give them a bone (meaning you will like them). When they don't like a dog, they just swipe away. All the liked dogs will be shown in a list. There you can chat with them (totally realistic, right?) and you will be provided with more contact info. The interaction I will be working on is the "liking" interaction.
+
+ ## Build with:
+ * [Node.js](https://nodejs.org/en/)
+ * [Pug](https://pugjs.org/api/getting-started.html)
+ * [Express](https://www.npmjs.com/package/express)
 
 # 💻 How to install
+
+Want to start up my app and you have no idea how? Follow the next steps! (if you are a pro already, you can skip the pre-installation).
 ## 🔨 Pre-installation:
 #### NODE.js
 * [Install NodeJs](https://nodejs.org/en/download/)
@@ -27,7 +38,7 @@ Welcome! This is my code for my school project: project-tech. I am making a matc
 
 ---
 
-## 🎫 License
+# 🎫 License
 
 [MIT License](https://github.com/samanthavz/project-tech/blob/master/LICENSE)
 
