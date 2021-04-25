@@ -1,9 +1,15 @@
-doctype html
-html
-  include includes/head.pug
-  body
-    h1 Home
-    p Welcome to my doggo matching app
-    include includes/footer.pug
-    script
-        include ../static/public/scripts/script.js 
+extends template.pug 
+  
+block content
+  div 
+    div 
+      div 
+        img(src="#{dogPicture}", alt="dog photo")
+        p #{price}
+        img(src="#{gender}", alt="gender")
+      div 
+        div
+          h2 #{name}
+          p #{age}
+        p #{dogBreed}
+    button

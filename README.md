@@ -46,4 +46,4 @@ Want to start up my app and you have no idea how? Follow the next steps! (if you
 
 ### 🙋‍♀️ Author: Samantha van Zandwijk
 
-![gif with waving man](./images/hello.gif)
+![gif with waving man](./files/hello.gif)

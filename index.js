@@ -5,6 +5,7 @@ const app = express()
 const port = 3000
 
 //pug
+app.use(express.static(__dirname + '/static/public/'))
 
 app.set('view engine', 'pug');
 
@@ -24,11 +25,11 @@ app.get('/', function (req, res) {
 //routes
 
 app.get('/home', (req, res) => {
-  res.render('home', { title: 'Doggo app', message: 'This is my home page' })
+  res.render('home', { title: 'DoggoSwipe', message: 'This is my home page' })
 });
 
 app.get('/matches', (req, res) => {
-  res.render('matches', { title: 'Doggo app', message: 'This is a list page for liked doggos' })
+  res.render('matches', { title: 'Doggo Matches', message: 'This is a list page for liked doggos' })
 });
 
 app.get('/welcome', (req, res) => {
@@ -45,7 +46,7 @@ app.get('/test/:testId/:slug', (req, res) => {
 
 
 //error handling
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.status(404).send("sorry can't find that!")
 });
 
@@ -53,5 +54,7 @@ app.use(function (req, res, next) {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
+
+
 
 
