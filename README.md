@@ -11,6 +11,8 @@ Welcome! This is my code for my school project: project-tech. During this projec
  * [Pug](https://pugjs.org/api/getting-started.html)
  * [Express](https://www.npmjs.com/package/express)
 
+ ---
+
 # 💻 How to install
 
 Want to start up my app and you have no idea how? Follow the next steps! (if you are a pro already, you can skip the pre-installation).
