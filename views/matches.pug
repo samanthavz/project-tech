@@ -1,4 +1,11 @@
 extends template.pug
 
 block content
-  h1 write the content for matches
+  ul 
+    - liked
+    each dog in liked
+      +match(dog.imgSrc, dog.name, dog.content, dog.price)
+    else 
+      p Your doggo list is empty..
+  
+  

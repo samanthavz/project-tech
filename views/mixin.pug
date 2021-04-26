@@ -1,3 +1,12 @@
 mixin link(href, name)
   //- attributes == {class: "btn"}
   a(class!=attributes.class href=href)= name
+
+
+mixin match(imgSrc, name, content, price)
+  li 
+    img(src=imgSrc, alt="profile picture")
+    div 
+      h2= name
+      p= content 
+    p= price
