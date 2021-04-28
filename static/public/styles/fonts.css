@@ -1,8 +1,14 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Mulish&display=swap');
+
+
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Fredoka One', cursive, sans-serif;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive, sans-serif;
 }
 
 
