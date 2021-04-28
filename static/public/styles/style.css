@@ -78,6 +78,15 @@ footer {
     /* original img 300x300 px */
     height: 190px;
     width: 200px;
+    z-index: 2;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1;
 }
 
 /* ------------------------------------- */
@@ -107,5 +116,9 @@ footer {
     .doggoPic {
         height: 310px;
         width: 320px;    
+    }
+
+    .wave {
+        height: 70vh;
     }
 }
