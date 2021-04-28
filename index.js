@@ -10,6 +10,12 @@ const liked = [
   {name: "Bob", imgSrc: "", content: "Woof", price: "$300"}
 ]
 
+const doggoList = [
+  {name: "Karel", imgSrc: "", breed: "insert breed", price: "$300", age: "3yr", gender: "./images/male.png"},
+  {name: "Wim", imgSrc: "", breed: "insert breed", price: "$300", age: "3yr", gender: "./images/male.png"},
+  {name: "Frans", imgSrc: "", breed: "insert breed", price: "$300", age: "3yr", gender: "./images/male.png"}
+]
+
 //pug
 app.use(express.static(__dirname + '/static/public/'))
 
@@ -31,7 +37,7 @@ app.get('/', function (req, res) {
 //routes
 
 app.get('/home', (req, res) => {
-  res.render('home', { title: 'DoggoSwipe', message: 'This is my home page' })
+  res.render('home', { title: 'DoggoSwipe', doggoList })
 });
 
 app.get('/matches', (req, res) => {

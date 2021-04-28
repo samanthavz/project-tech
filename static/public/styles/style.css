@@ -23,6 +23,7 @@ body {
     background-image: url(./images/background1.png);
     background-repeat: no-repeat;
     background-size: cover;
+    user-select: none;
 }
 
 
@@ -43,6 +44,7 @@ footer {
     overflow-y: hidden;
     overflow-x: hidden;
     position: relative;
+    z-index: 2;
 }
 
 .welcome h1 {
@@ -63,8 +65,11 @@ footer {
     padding: 0.3em 0.6em 0.5em 0.6em;
     text-decoration: none;
     color:#ffffff;
-    background: #ffaaaa96 
+    background: #ffaaaa96;
+    z-index: 2;
+    position: relative;
 }
+
 
 .welcome a:hover {
     background: #fa828296 

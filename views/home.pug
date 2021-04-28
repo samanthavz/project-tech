@@ -2,15 +2,19 @@ extends template.pug
   
 block content
   div 
-    div 
+    - doggoList
+    each doggo in doggoList
       div 
-        img(src="#{dogPicture}", alt="dog photo")
-        p #{price}
-        img(src="#{gender}", alt="gender")
-      div 
-        div
-          h2 #{name}
-          p #{age}
-        p #{dogBreed}
-    button
-      img(src="images/bone.png", alt="image of a bone" height="150px")
+        div 
+          img(src="#{doggo.imgSrc}", alt="dog photo")
+          p #{doggo.price}
+          img(src="#{doggo.gender}", alt="gender")
+        div 
+          div
+            h2 #{doggo.name}
+            p #{doggo.age}
+          p #{doggo.breed}
+      button
+        img(src="images/bone.png", alt="image of a bone" height="150px")
+    else 
+      h2 There are currently no doggos that match your preferences..

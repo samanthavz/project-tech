@@ -2,6 +2,7 @@ doctype html
 html
   include includes/head.pug
   body(class="welcome")
+    img(src='/images/wave.png' class="wave" alt="")
     //- ik geef hier een height en width mee, sorry als dit niet mag maar anders ziet het er niet uit zonder css :(
     img(src='/images/bone.png' class="boneImg" alt="DoggoSwipe logo" height="150px" width="150px")
     h1 DoggoSwipe
@@ -15,6 +16,6 @@ html
             //- a(href = "/sign_up") Sign Up
             +link('/welcome', 'Sign up')(class="")
     img(src='/images/dog.png' class="doggoPic" alt="Pixelated dog" height="300px" width="300px")
-    img(src='/images/wave.png' class="wave" alt="")
+    
     script
         include ../static/public/scripts/script.js 
