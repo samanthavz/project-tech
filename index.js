@@ -4,6 +4,12 @@ const pug = require('pug');
 const app = express()
 const port = 3000
 
+const liked = [
+  {name: "Ben", imgSrc: "", content: "Woof", price: "$300"},
+  {name: "Patricia", imgSrc: "", content: "Woof", price: "$300"},
+  {name: "Bob", imgSrc: "", content: "Woof", price: "$300"}
+]
+
 //pug
 app.use(express.static(__dirname + '/static/public/'))
 
@@ -31,12 +37,6 @@ app.get('/home', (req, res) => {
 app.get('/matches', (req, res) => {
   res.render('matches', { title: 'Doggo Matches', liked})
 });
-
-const liked = [
-  // {name: "Ben", imgSrc: "", content: "Woof", price: "$300"},
-  // {name: "Patricia", imgSrc: "", content: "Woof", price: "$300"},
-  // {name: "Bob", imgSrc: "", content: "Woof", price: "$300"}
-]
 
 
 app.get('/welcome', (req, res) => {
