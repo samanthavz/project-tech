@@ -37,12 +37,13 @@ app.get('/', function (req, res) {
 //routes
 
 app.get('/home', (req, res) => {
-  res.render('home', { title: 'DoggoSwipe', doggoList })
+  res.render('home', { title: 'DoggoSwipe', doggoList})
 });
 
 app.get('/matches', (req, res) => {
   res.render('matches', { title: 'Doggo Matches', liked})
 });
+
 
 
 app.get('/welcome', (req, res) => {
