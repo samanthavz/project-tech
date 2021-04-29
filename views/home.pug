@@ -14,7 +14,8 @@ block content
             h2 #{doggo.name}
             p #{doggo.age}
           p #{doggo.breed}
-      button
-        img(src="images/bone.png", alt="image of a bone" height="150px")
+      form(action="/matches", method="post") 
+        button
+          img(src="images/bone.png", alt="image of a bone" height="150px")
     else 
       h2 There are currently no doggos that match your preferences..
