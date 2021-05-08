@@ -1,6 +1,5 @@
 // const camelcase = require("camelcase");
 const express = require("express");
-const bodyParser = require("body-parser");
 // const pug = require("pug");
 const app = express();
 const port = 3000;
@@ -28,13 +27,9 @@ var doggo = {
 app.use(express.static(__dirname + "/static/public/"));
 
 // For parsing nested JSON objects
-// see https://stackoverflow.com/questions/24330014/bodyparser-is-deprecated-express-4 and http://expressjs.com/en/resources/middleware/body-parser.html
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
-app.use(bodyParser.json());
+// see https://medium.com/@mmajdanski/express-body-parser-and-why-may-not-need-it-335803cd048c
+app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies
+app.use(express.json());
 
 app.set("view engine", "pug");
 
