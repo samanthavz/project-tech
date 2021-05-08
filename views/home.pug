@@ -2,8 +2,7 @@ extends template.pug
   
 block content
   div 
-    - doggoList
-    each doggo in doggoList
+    if doggo
       div 
         div 
           img(src="#{doggo.imgSrc}", alt="dog photo")
@@ -14,8 +13,13 @@ block content
             h2 #{doggo.name}
             p #{doggo.age}
           p #{doggo.breed}
-      form(action="/matches", method="post") 
-        button
+      form(action="/matches/liked", method="post")
+        input(type="hidden", name="userId", value=doggo.userId)
+        button(type="submit") 
           img(src="images/bone.png", alt="image of a bone" height="150px")
+      form(action="/matches/disliked", method="post")
+        input(type="hidden", name="userId", value=doggo.userId)
+        button(type="submit") weg ermee
+
     else 
       h2 There are currently no doggos that match your preferences..
