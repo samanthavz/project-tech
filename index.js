@@ -1,8 +1,28 @@
 // const camelcase = require("camelcase");
 const express = require("express");
+const dotenv = require("dotenv");
 // const pug = require("pug");
+const { MongoClient } = require("mongodb");
 const app = express();
 const port = 3000;
+
+// see https://www.npmjs.com/package/dotenv
+dotenv.config();
+
+// see https://docs.mongodb.com/drivers/node/current/quick-start/
+const client = new MongoClient(process.env.DB_CONNECT, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+client
+  .connect()
+  .then(() => {
+    console.info("[MONGO DB] database connected!");
+  })
+  .catch((error) => {
+    console.error("[MONGO DB] error: " + error.message);
+  });
 
 // TODO: this is data from database
 const liked = [
