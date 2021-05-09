@@ -26,9 +26,24 @@ client
 
 // TODO: this is data from database
 const liked = [
-  { name: "Ben", imgSrc: "", content: "Woof", price: "$300" },
-  { name: "Patricia", imgSrc: "", content: "Woof", price: "$300" },
-  { name: "Bob", imgSrc: "", content: "Woof", price: "$300" },
+  {
+    name: "Ben",
+    imgSrc: "./images/dogPic.jpg",
+    content: "Woof",
+    price: "$300",
+  },
+  {
+    name: "Patricia",
+    imgSrc: "./images/dogPic.jpg",
+    content: "Woof",
+    price: "$300",
+  },
+  {
+    name: "Bob",
+    imgSrc: "./images/dogPic.jpg",
+    content: "Woof",
+    price: "$300",
+  },
 ];
 
 // TODO: this is also data from database
