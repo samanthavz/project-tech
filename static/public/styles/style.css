@@ -2,128 +2,182 @@
 /*wat algemene stuff wat overal voor geldt */
 /*-----------------------------------------*/
 
-*, *::after, *::before {
-    box-sizing:border-box; 
-    margin: 0;
-    padding: 0; 
-  }
-  
-html {
-    max-height: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html {
+  max-height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
 body {
-    min-height: 100vh;
-    min-width: 100vw;
-    color: #ff7d7d;
-    background-image: url(./images/background1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    user-select: none;
+  min-height: 100vh;
+  min-width: 100vw;
+  color: #ff7d7d;
+  background-image: url(./images/background1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
 }
-
 
 footer {
-    position: absolute;
-    bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
 
+/* ------------------------------------- */
+/*               Template                */
+/* ------------------------------------- */
+
+.template h1 {
+  height: 10vh;
+  text-align: center;
+  padding: 0.4em 0;
+}
 
 /* ------------------------------------- */
 /*             welcome.pug               */
 /* ------------------------------------- */
 
-
 .welcome {
-    text-align: center;
-    padding: 2em 1em 0 1em;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    position: relative;
-    z-index: 2;
+  text-align: center;
+  padding: 2em 1em 0 1em;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .welcome h1 {
-    font-size: 3.5em;
-    margin-top: -1em;
+  font-size: 3.5em;
+  margin-top: -1em;
 }
 
 .welcome p {
-    font-size: 1.5em;
-    padding: 0.4em 1.4em 2em 1.4em;
+  font-size: 1.5em;
+  padding: 0.4em 1.4em 2em 1.4em;
 }
 
 .welcome a {
-    font-size: 1.5em;
-    border: 0.08em solid #ffffffb0;
-    border-radius: 0.7em;
-    width: 7em;
-    padding: 0.3em 0.6em 0.5em 0.6em;
-    text-decoration: none;
-    color:#ffffff;
-    background: #ffaaaa96;
-    z-index: 2;
-    position: relative;
+  font-size: 1.5em;
+  border: 0.08em solid #ffffffb0;
+  border-radius: 0.7em;
+  width: 7em;
+  padding: 0.3em 0.6em 0.5em 0.6em;
+  text-decoration: none;
+  color: #ffffff;
+  background: #ffaaaa96;
+  z-index: 2;
+  position: relative;
 }
-
 
 .welcome a:hover {
-    background: #fa828296 
+  background: #fa828296;
 }
 
-
 .doggoPic {
-    position: absolute;
-    bottom: 0;
-    left: 1em;
-    /* original img 300x300 px */
-    height: 190px;
-    width: 200px;
-    z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 1em;
+  /* original img 300x300 px */
+  height: 190px;
+  width: 200px;
+  z-index: 2;
 }
 
 .wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+/* ------------------------------------- */
+/*            Navigatie Bar              */
+/* ------------------------------------- */
+
+nav {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+nav div {
+  background-color: rgba(255, 241, 241, 0.603);
+  padding: 0 2.5em;
+  border-radius: 3em 3em 0 0;
+  border: 0.01em solid rgba(255, 255, 255, 0.397);
+}
+
+nav a {
+  display: inline-block;
+  padding: 1.3em;
+  text-decoration: none;
+  font-size: 2.2vw;
+}
+
+nav a:hover {
+  background: #ffe1d89a;
+  border-radius: 0.5em;
+}
+
+/* ------------------------------------- */
+/*            Matches.pug                */
+/* ------------------------------------- */
+
+ul {
+  background-color: rgba(255, 241, 241, 0.603);
+  height: 90vh;
+}
+ul li {
+  border-top: 0.1em solid white;
 }
 
 /* ------------------------------------- */
 /*           media queries               */
 /* ------------------------------------- */
 
-
 @media only screen and (min-width: 1100px) {
-    
-    .boneImg {
-        width: 17em;
-        height: 17em;
-    }
-    .welcome h1 {
-        font-size: 4.5em; 
-        margin-top: -1.5em;
-    }
+  .boneImg {
+    width: 17em;
+    height: 17em;
+  }
+  .welcome h1 {
+    font-size: 4.5em;
+    margin-top: -1.5em;
+  }
 
-    .welcome p {
-        font-size: 2em; 
-    }
+  .welcome p {
+    font-size: 2em;
+  }
 
-    .welcome a {
-        font-size: 1.7em; 
-    }
-    
-    .doggoPic {
-        height: 310px;
-        width: 320px;    
-    }
+  .welcome a {
+    font-size: 1.7em;
+  }
 
-    .wave {
-        height: 70vh;
-    }
+  .doggoPic {
+    height: 310px;
+    width: 320px;
+  }
+
+  .wave {
+    height: 70vh;
+  }
+
+  nav a {
+    padding: 0.4em 0.8em;
+  }
 }
