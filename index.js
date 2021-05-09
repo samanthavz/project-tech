@@ -91,13 +91,14 @@ app.get("/home", (req, res) => {
   res.render("home", { title: "DoggoSwipe", doggo });
 });
 
+//form
 app.post("/matches/liked", (req, res) => {
   console.log(req.body);
 
   // TODO: get new doggo from database, put in 'liked' list for user
   liked.push(doggo);
 
-  // TODO: remove when getting doggo from database works
+  // TODO: remove when getting doggo from database works and instead push new doggo from database
   doggo = null;
 
   res.redirect("/home");

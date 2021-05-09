@@ -25,6 +25,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   user-select: none;
+  overflow: hidden;
 }
 
 footer {
@@ -120,6 +121,8 @@ nav div {
   padding: 0 2.5em;
   border-radius: 3em 3em 0 0;
   border: 0.01em solid rgba(255, 255, 255, 0.397);
+  box-shadow: rgba(97, 56, 63, 0.068) 0px 2px 4px 0px,
+    rgba(90, 46, 55, 0.123) 0px 2px 16px 0px;
 }
 
 nav a {
@@ -142,12 +145,29 @@ ul {
   background-color: rgba(255, 241, 241, 0.603);
   height: 90vh;
   border-radius: 3em 3em 0 0;
+  box-shadow: rgba(97, 56, 63, 0.068) 0px 2px 4px 0px,
+    rgba(90, 46, 55, 0.123) 0px 2px 16px 0px;
   overflow-y: scroll;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
+/* see https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp*/
+/* Hide scrollbar for Chrome, Safari and Opera */
+ul::-webkit-scrollbar {
+  display: none;
+}
+
 ul li {
-  border-top: 0.1em solid white;
-  padding: 1em 1em 1em 1.5em;
+  border-top: 0.1em solid rgba(255, 163, 163, 0.247);
+  padding: 1em 1em 1em 0;
   display: flex;
+  margin: 0 2.2em;
+  align-items: center;
+}
+
+ul li:first-of-type {
+  border-top: none;
 }
 
 li img {
@@ -155,6 +175,14 @@ li img {
   height: 5em;
   border-radius: 3em;
   object-fit: cover;
+}
+
+li div {
+  flex-grow: 1;
+  margin-left: 1em;
+}
+
+li p {
 }
 
 /* ------------------------------------- */
