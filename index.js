@@ -92,6 +92,9 @@ app.get("/home", (req, res) => {
 });
 
 //form
+
+//TODO: Maak een GET post aan waarbij je users uit de database haalt en filtert dmv jouw profiel
+
 app.post("/matches/liked", (req, res) => {
   console.log(req.body);
 
@@ -100,6 +103,8 @@ app.post("/matches/liked", (req, res) => {
 
   // TODO: remove when getting doggo from database works and instead push new doggo from database
   doggo = null;
+
+  //TODO: refresh de database en filter opnieuw.
 
   res.redirect("/home");
 });
