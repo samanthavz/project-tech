@@ -1,4 +1,4 @@
-![DoggoSwipe banner](./files/banner-01.png)
+![DoggoSwipe banner](./files/Banner-01.png)
 # 🐶 DoggoSwipe
 
 Welcome! This is my code for my school project: project-tech. During this project I will be making one interaction for the DoggoSwipe app. Feel free to look around or check out my [wiki](https://github.com/samanthavz/project-tech/wiki) for more info! (written in dutch).
