@@ -6,6 +6,6 @@ block content
     each dog in liked
       +match(dog.imgSrc, dog.name, dog.content, dog.price)
     else 
-      p Your doggo list is empty..
+      p(class="emptyP") Your doggo list is empty..
   
   

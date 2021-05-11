@@ -3,59 +3,23 @@ const express = require("express");
 const dotenv = require("dotenv");
 // const pug = require("pug");
 const { MongoClient } = require("mongodb");
+// const mongo = require("mongodb").MongoClient;
 const app = express();
 const port = 3000;
 
 // see https://www.npmjs.com/package/dotenv
 dotenv.config();
 
-// see https://docs.mongodb.com/drivers/node/current/quick-start/
-const client = new MongoClient(process.env.DB_CONNECT, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+//arrays
+let liked = [];
+let doggoList = [];
 
-client
-  .connect()
-  .then(() => {
-    console.info("[MONGO DB] database connected!");
-  })
-  .catch((error) => {
-    console.error("[MONGO DB] error: " + error.message);
-  });
-
-// TODO: this is data from database
-const liked = [
-  {
-    name: "Ben",
-    imgSrc: "./images/dogPic.jpg",
-    content: "Woof",
-    price: "$300",
-  },
-  {
-    name: "Patricia",
-    imgSrc: "./images/dogPic.jpg",
-    content: "Woof",
-    price: "$300",
-  },
-  {
-    name: "Bob",
-    imgSrc: "./images/dogPic.jpg",
-    content: "Woof",
-    price: "$300",
-  },
-];
-
-// TODO: this is also data from database
-var doggo = {
-  name: "Karel",
-  imgSrc: "./images/dogPic.jpg",
-  content: "Woof",
-  breed: "insert breed",
-  price: "$300",
-  age: "3yr",
-  gender: "./images/male.png",
-  userId: 42,
+let profile = {
+  name: "Samantha",
+  lastname: "van Zandwijk",
+  age: "19",
+  likedDoggos: [],
+  dislikedDoggos: [],
 };
 
 //pug
@@ -75,20 +39,48 @@ app.get("/", function (req, res) {
   });
 });
 
-//expresssssssssssssssssssss
+const client = new MongoClient(process.env.DB_CONNECT, {
+  retryWrites: true,
+  useUnifiedTopology: true,
+});
 
-// app.use(express.static('./static/public'))
+// Mind you that this is now an async function.
+app.get("/home", async (req, res) => {
+  doggoList = [];
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World and Bob!')
-// });
+  try {
+    // We wait here till the client is connected
+    await client.connect();
 
-//routes
+    // We want to connect to the "DoggoSwipe" database
+    const database = client.db("DoggoSwipe");
+    // We want to connect to the "doggos" collection in the "DoggoSwipe" database
+    const collection = database.collection("Doggos");
 
-app.get("/home", (req, res) => {
-  // FIXME: get doggo from database for user on request
+    const cursor = await collection.find({});
+    await cursor.forEach((doc) => {
+      let isInLiked = false;
+      profile.likedDoggos.forEach(function (dog) {
+        if (doc.userId === dog.userId) {
+          isInLiked = true;
+        }
+      });
+      profile.dislikedDoggos.forEach(function (dog) {
+        if (doc.userId === dog.userId) {
+          isInLiked = true;
+        }
+      });
 
-  res.render("home", { title: "DoggoSwipe", doggo });
+      if (!isInLiked) {
+        doggoList.push(doc);
+      }
+
+    });
+  } catch (error) {
+    console.log(error);
+  } finally {
+    res.render("home", { title: "DoggoSwipe", doggo: doggoList[0] });
+  }
 });
 
 //form
@@ -99,12 +91,11 @@ app.post("/matches/liked", (req, res) => {
   console.log(req.body);
 
   // TODO: get new doggo from database, put in 'liked' list for user
-  liked.push(doggo);
+  liked.push(doggoList[0]);
+  profile.likedDoggos.push(doggoList[0]);
 
-  // TODO: remove when getting doggo from database works and instead push new doggo from database
-  doggo = null;
-
-  //TODO: refresh de database en filter opnieuw.
+  // TODO: remove when getting doggo from database works and instead filter database again and push new doggo from database
+  // doggoList = null;
 
   res.redirect("/home");
 });
@@ -112,8 +103,7 @@ app.post("/matches/liked", (req, res) => {
 app.post("/matches/disliked", (req, res) => {
   console.log(req.body);
 
-  // TODO: put in disliked list in database
-  doggo = null;
+  profile.dislikedDoggos.push(doggoList[0]);
 
   res.redirect("/home");
 });

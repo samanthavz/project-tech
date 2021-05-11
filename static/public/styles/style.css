@@ -58,7 +58,6 @@ footer {
 
 .welcome h1 {
   font-size: 3.5em;
-  margin-top: -1em;
 }
 
 .welcome p {
@@ -169,6 +168,13 @@ nav a:hover {
   background-color: transparent;
 }
 
+.emptyH2 {
+  text-align: center;
+  margin-top: 2em;
+  padding: 0 2em;
+  font-size: 1.2em;
+}
+
 
 
 /* ------------------------------------- */
@@ -178,6 +184,7 @@ nav a:hover {
 ul {
   background-color: rgba(255, 241, 241, 0.603);
   height: 90vh;
+  padding-bottom: 5em;
   border-radius: 3em 3em 0 0;
   box-shadow: rgba(97, 56, 63, 0.068) 0px 2px 4px 0px,
     rgba(90, 46, 55, 0.123) 0px 2px 16px 0px;
@@ -216,18 +223,27 @@ li div {
   margin-left: 1em;
 }
 
+.emptyP{
+  text-align: center;
+  margin-top: 1em;
+  font-size: 1.2em;
+}
+
+.content {
+  color:#ff7d7dbb
+}
+
+
 /* ------------------------------------- */
 /*           media queries               */
 /* ------------------------------------- */
 
 @media only screen and (min-width: 1100px) {
   .boneImg {
-    width: 17em;
-    height: 17em;
+    height: 10em;
   }
   .welcome h1 {
     font-size: 4.5em;
-    margin-top: -1.5em;
   }
 
   .welcome p {

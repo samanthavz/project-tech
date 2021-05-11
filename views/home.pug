@@ -11,7 +11,7 @@ block content
         div 
           div
             h2 #{doggo.name}
-            p #{doggo.age}
+            p #{doggo.age}yr
           p #{doggo.breed}
       form(action="/matches/liked", method="post")
         input(type="hidden", name="userId", value=doggo.userId)
@@ -22,4 +22,4 @@ block content
         button(type="submit") weg ermee
 
     else 
-      h2 There are currently no doggos that match your preferences..
+      h2(class="emptyH2") There are currently no doggos that match your preferences..
