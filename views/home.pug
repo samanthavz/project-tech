@@ -4,15 +4,15 @@ block content
   div(class="home")
     if doggo
       div 
-        div 
-          img(src=doggo.imgSrc, alt="dog photo" height="200px")
+        div(class="imgDiv") 
+          img(src=doggo.imgSrc, class="image" alt="dog photo" height="300px")
           p #{doggo.price}
-          img(src=doggo.gender, alt="gender")
-        div 
+          img(src=doggo.gender, class="gender" alt="gender")
+        div(class="info") 
           div
             h2 #{doggo.name}
-            p #{doggo.age}yr
-          p #{doggo.breed}
+            p #{doggo.breed}
+          p #{doggo.age} years
       form(action="/matches/liked", method="post")
         input(type="hidden", name="userId", value=doggo.userId)
         button(type="submit") 
