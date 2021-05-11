@@ -137,6 +137,40 @@ nav a:hover {
   border-radius: 0.5em;
 }
 
+
+/* ------------------------------------- */
+/*              Home.pug                 */
+/* ------------------------------------- */
+
+.home {
+  background-color: rgba(255, 241, 241, 0.603);
+  height: 75vh;
+  border-radius: 3em;
+  box-shadow: rgba(97, 56, 63, 0.068) 0px 2px 4px 0px,
+    rgba(90, 46, 55, 0.123) 0px 2px 16px 0px;
+    margin: 0 1em;
+  padding-top: 1em;
+  text-align: center;
+}
+
+.home > div {
+  background-color: rgba(255, 241, 241, 0.747);
+  height: 50vh;
+  border-radius: 3em;
+  box-shadow: rgba(158, 85, 97, 0.158) 0px 2px 4px 0px,
+    rgba(160, 75, 92, 0.247) 0px 2px 16px 0px;
+  margin: 0 1.5em;
+  text-align: left;
+}
+
+.home button {
+  margin-top: 1em;
+  border: none;
+  background-color: transparent;
+}
+
+
+
 /* ------------------------------------- */
 /*            Matches.pug                */
 /* ------------------------------------- */
