@@ -49,7 +49,7 @@ const liked = [
 // TODO: this is also data from database
 var doggo = {
   name: "Karel",
-  imgSrc: "",
+  imgSrc: "./images/dogPic.jpg",
   content: "Woof",
   breed: "insert breed",
   price: "$300",
