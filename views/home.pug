@@ -3,11 +3,11 @@ extends template.pug
 block content
   div(class="home")
     if doggo
-      div(class="cardDiv")
+      div(class="cardDiv", draggable="true")
         div(class="imgDiv") 
-          img(src=doggo.imgSrc, class="image" alt="dog photo" height="300px")
+          img(src=doggo.imgSrc, class="image", alt="dog photo", height="300px")
           p #{doggo.price}
-          img(src=doggo.gender, class="gender" alt="gender")
+          img(src=doggo.gender, class="gender", alt="gender")
         div(class="info") 
           div
             h2 #{doggo.name}
@@ -15,8 +15,8 @@ block content
           p #{doggo.age} years
       form(action="/matches/liked", method="post")
         input(type="hidden", name="userId", value=doggo.userId)
-        button(type="submit") 
-          img(src="images/bone.png", alt="image of a bone" height="100px")
+        button(type="submit", id="bone", draggable="true") 
+          img(src="images/bone.png", alt="image of a bone", height="100px")
       form(action="/matches/disliked", method="post")
         input(type="hidden", name="userId", value=doggo.userId)
         button(type="submit") weg ermee
