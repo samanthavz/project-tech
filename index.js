@@ -1,9 +1,7 @@
-// const camelcase = require("camelcase");
 const express = require("express");
 const dotenv = require("dotenv");
 // const pug = require("pug");
 const { MongoClient } = require("mongodb");
-// const mongo = require("mongodb").MongoClient;
 const app = express();
 const port = 3000;
 
@@ -20,6 +18,7 @@ let profile = {
   age: "19",
   likedDoggos: [],
   dislikedDoggos: [],
+  maxAge: 10,
 };
 
 //pug
@@ -42,64 +41,63 @@ app.get("/", function (req, res) {
 const client = new MongoClient(process.env.DB_CONNECT, {
   retryWrites: true,
   useUnifiedTopology: true,
+  useNewUrlParser: true,
 });
 
-// Mind you that this is now an async function.
+// async function to make sure everything is connected first
 app.get("/home", async (req, res) => {
   doggoList = [];
 
   try {
-    // We wait here till the client is connected
+    // wait untill client is connected
     await client.connect();
 
-    // We want to connect to the "DoggoSwipe" database
+    // connect to the database
     const database = client.db("DoggoSwipe");
-    // We want to connect to the "doggos" collection in the "DoggoSwipe" database
+    // connect to collection
     const collection = database.collection("Doggos");
 
     const cursor = await collection.find({});
     await cursor.forEach((doc) => {
-      let isInLiked = false;
+      let push = false;
       profile.likedDoggos.forEach(function (dog) {
         if (doc.userId === dog.userId) {
-          isInLiked = true;
+          push = true;
         }
       });
       profile.dislikedDoggos.forEach(function (dog) {
         if (doc.userId === dog.userId) {
-          isInLiked = true;
+          push = true;
         }
       });
 
-      if (!isInLiked) {
+      if (!push && doc.age <= profile.maxAge) {
         doggoList.push(doc);
       }
-
     });
   } catch (error) {
     console.log(error);
   } finally {
+    client.removeAllListeners();
     res.render("home", { title: "DoggoSwipe", doggo: doggoList[0] });
+
   }
+  
 });
 
 //form
 
-//TODO: Maak een GET post aan waarbij je users uit de database haalt en filtert dmv jouw profiel
-
+// push liked doggo's
 app.post("/matches/liked", (req, res) => {
   console.log(req.body);
 
-  // TODO: get new doggo from database, put in 'liked' list for user
   liked.push(doggoList[0]);
   profile.likedDoggos.push(doggoList[0]);
-
-  // TODO: remove when getting doggo from database works and instead filter database again and push new doggo from database
-  // doggoList = null;
 
   res.redirect("/home");
 });
 
+// push disliked doggo's
 app.post("/matches/disliked", (req, res) => {
   console.log(req.body);
 
@@ -108,6 +106,8 @@ app.post("/matches/disliked", (req, res) => {
   res.redirect("/home");
 });
 
+
+//other routes
 app.get("/matches", (req, res) => {
   res.render("matches", { title: "Doggo Matches", liked });
 });
