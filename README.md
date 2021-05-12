@@ -42,7 +42,13 @@ Want to start up my app and you have no idea how? Follow the next steps! (if you
 * ```npm start```
 
 ---
+# 📊 Database
 
+The database used for this app is [MongoDB](https://www.mongodb.com/). The database consist out of collections of dog profiles and user profiles.
+
+<!-- TODO: data structure diagram -->
+
+---
 # 🎫 License
 
 [MIT License](https://github.com/samanthavz/project-tech/blob/master/LICENSE)
