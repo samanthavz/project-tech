@@ -3,7 +3,7 @@ extends template.pug
 block content
   div(class="home")
     if doggo
-      div 
+      div(class="cardDiv")
         div(class="imgDiv") 
           img(src=doggo.imgSrc, class="image" alt="dog photo" height="300px")
           p #{doggo.price}
