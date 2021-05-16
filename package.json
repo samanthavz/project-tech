@@ -7,8 +7,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo 'no tests defined' && exit 1",
-    "start": "nodemon index.js",
-    "linter": "eslint *.js"
+    "start": "node index.js",
+    "linter": "eslint *.js",
+    "dev": "nodemon index.js"
   },
   "author": "Samantha van Zandwijk",
   "license": "MIT",
