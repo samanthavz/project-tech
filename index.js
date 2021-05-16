@@ -1,11 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
-// const pug = require("pug");
 const { MongoClient } = require("mongodb");
 const app = express();
 const port = 3000;
-
-
 
 // see https://www.npmjs.com/package/dotenv
 dotenv.config();
@@ -53,13 +50,13 @@ app.get("/home", async (req, res) => {
   try {
     // wait untill client is connected
     await client.connect();
-
     // connect to the database
     const database = client.db("DoggoSwipe");
     // connect to collection
     const collection = database.collection("Doggos");
-
-    const cursor = await collection.find({});
+    // fetch the data
+    const cursor = collection.find({});
+    // wait for data
     await cursor.forEach((doc) => {
       let push = false;
       profile.likedDoggos.forEach(function (dog) {
@@ -72,42 +69,32 @@ app.get("/home", async (req, res) => {
           push = true;
         }
       });
-
       if (!push && doc.age <= profile.maxAge) {
         doggoList.push(doc);
       }
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   } finally {
     client.removeAllListeners();
     res.render("home", { title: "DoggoSwipe", doggo: doggoList[0] });
-
   }
-  
 });
 
 //form
 
 // push liked doggo's
 app.post("/matches/liked", (req, res) => {
-  console.log(req.body);
-
   liked.push(doggoList[0]);
   profile.likedDoggos.push(doggoList[0]);
-
   res.redirect("/home");
 });
 
 // push disliked doggo's
 app.post("/matches/disliked", (req, res) => {
-  console.log(req.body);
-
   profile.dislikedDoggos.push(doggoList[0]);
-
   res.redirect("/home");
 });
-
 
 //other routes
 app.get("/matches", (req, res) => {
