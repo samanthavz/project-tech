@@ -17,6 +17,7 @@ html {
   scroll-behavior: smooth;
 }
 
+
 body {
   min-height: 100vh;
   min-width: 100vw;
@@ -26,6 +27,7 @@ body {
   background-size: cover;
   user-select: none;
   overflow: hidden;
+  position: relative;
 }
 
 footer {
@@ -224,6 +226,20 @@ nav a:hover {
   text-align: right;
   font-size: 1.2em;
   margin-top: 0.4em
+}
+
+.infoButton {
+  position: absolute;
+  top: 1em;
+  right: 6vw;
+  width: 3.6em;
+  height: 3.6em;
+  background-color: transparent;
+  border: none;
+}
+
+.infoButton img {
+  width: 100%;
 }
 
 

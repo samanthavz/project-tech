@@ -8,13 +8,11 @@ html
     h1 DoggoSwipe
     p Swipe your way to your doggo
     if(user)
-        //- p Welcome #{user.name} to my doggo matching app
         div
             a(href="/home") Start
     else
         div
-            //- a(href = "/sign_up") Sign Up
-            +link('/welcome', 'Sign up')(class="")
+            +link('/welcome', 'Sign up')
     img(src='/images/dog.png' class="doggoPic" alt="Pixelated dog" height="300px" width="300px")
     
     script

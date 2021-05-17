@@ -46,7 +46,6 @@ const client = new MongoClient(process.env.DB_CONNECT, {
 // async function to make sure everything is connected first
 app.get("/home", async (req, res) => {
   doggoList = [];
-
   try {
     // wait untill client is connected
     await client.connect();
@@ -80,6 +79,7 @@ app.get("/home", async (req, res) => {
     res.render("home", { title: "DoggoSwipe", doggo: doggoList[0] });
   }
 });
+
 
 //form
 
