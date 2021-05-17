@@ -14,3 +14,18 @@ console.log("script linked");
 // function dragEnd() {
 //   console.log('End');
 // }
+
+const button = document.getElementById("infoButton");
+const content = document.getElementById("overlay");
+const closeIt = document.getElementById("close");
+
+button.addEventListener("click", showTip)
+closeIt.addEventListener("click", closeTip);
+
+function showTip() {
+  content.style.display = "block"
+};
+
+function closeTip() {
+  content.style.display = "none"
+};

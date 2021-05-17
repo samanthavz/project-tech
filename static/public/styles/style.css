@@ -243,6 +243,28 @@ nav a:hover {
 }
 
 
+.infoContent {
+  position: absolute;
+  background-color: white;
+}
+
+.infoImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40vh;
+}
+
+.overlay {
+  background-color:rgba(0, 0, 0, 0.226);
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  z-index: 2;
+  position: absolute;
+}
+
+
 /* ------------------------------------- */
 /*            Matches.pug                */
 /* ------------------------------------- */
