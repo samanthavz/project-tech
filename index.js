@@ -7,7 +7,7 @@ const port = 3000;
 // see https://www.npmjs.com/package/dotenv
 dotenv.config();
 
-//arrays
+
 let liked = [];
 let doggoList = [];
 
@@ -49,9 +49,8 @@ app.get("/home", async (req, res) => {
   try {
     // wait untill client is connected
     await client.connect();
-    // connect to the database
+    // connect to the database and collection
     const database = client.db("DoggoSwipe");
-    // connect to collection
     const collection = database.collection("Doggos");
     // fetch the data
     const cursor = collection.find({});
@@ -81,7 +80,6 @@ app.get("/home", async (req, res) => {
 });
 
 
-//form
 
 // push liked doggo's
 app.post("/matches/liked", (req, res) => {
@@ -105,11 +103,6 @@ app.get("/welcome", (req, res) => {
   res.render("welcome", {
     user: { name: "visitor" },
   });
-});
-
-//adding an id
-app.get("/test/:testId/:slug", (req, res) => {
-  res.send(`<h1> this is page for ${req.params.slug}</h1>`);
 });
 
 //error handling

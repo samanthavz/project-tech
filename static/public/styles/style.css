@@ -17,7 +17,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
   min-height: 100vh;
   min-width: 100vw;
@@ -138,7 +137,6 @@ nav a:hover {
   border-radius: 0.5em;
 }
 
-
 /* ------------------------------------- */
 /*              Home.pug                 */
 /* ------------------------------------- */
@@ -149,7 +147,7 @@ nav a:hover {
   border-radius: 3em;
   box-shadow: rgba(97, 56, 63, 0.068) 0px 2px 4px 0px,
     rgba(90, 46, 55, 0.123) 0px 2px 16px 0px;
-    margin: 0 1em;
+  margin: 0 1em;
   padding-top: 1em;
   text-align: center;
 }
@@ -225,7 +223,7 @@ nav a:hover {
   flex-grow: 1;
   text-align: right;
   font-size: 1.2em;
-  margin-top: 0.4em
+  margin-top: 0.4em;
 }
 
 .infoButton {
@@ -242,10 +240,57 @@ nav a:hover {
   width: 100%;
 }
 
-
 .infoContent {
   position: absolute;
-  background-color: white;
+  /* background-color: white; */
+  background-image: url(../images/textArea.svg);
+  background-repeat: no-repeat;
+  top: 15vh;
+  right: -10vw;
+  height: 60vh;
+  width: 100vw;
+  padding: 2em 0;
+}
+
+.infoContent h2,
+.infoContent p,
+.infoContent button {
+  margin-left: 50px;
+}
+
+.infoContent h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.infoContent p {
+  font-size: 1.1em;
+}
+
+.infoContent p:first-of-type,
+.infoContent p:nth-of-type(3) {
+  font-weight: 600;
+}
+
+.infoContent p:nth-of-type(2), .infoContent p:nth-of-type(4) {
+  margin-bottom: 0.5em;
+}
+
+.infoContent button {
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+  border: none;
+  background-color:#ff7d7d;
+  border-radius: 1em;
+}
+.infoContent button:hover {
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+  border: none;
+  background-color:#ff7d7da6;
+  border-radius: 1em;
 }
 
 .infoImg {
@@ -256,14 +301,13 @@ nav a:hover {
 }
 
 .overlay {
-  background-color:rgba(0, 0, 0, 0.226);
+  background-color: rgba(0, 0, 0, 0.507);
   width: 100vw;
   height: 100vh;
   display: none;
   z-index: 2;
   position: absolute;
 }
-
 
 /* ------------------------------------- */
 /*            Matches.pug                */
@@ -311,16 +355,15 @@ li div {
   margin-left: 1em;
 }
 
-.emptyP{
+.emptyP {
   text-align: center;
   margin-top: 1em;
   font-size: 1.2em;
 }
 
 .content {
-  color:#ff7d7dbb
+  color: #ff7d7dbb;
 }
-
 
 /* ------------------------------------- */
 /*           media queries               */
