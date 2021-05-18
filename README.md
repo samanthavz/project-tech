@@ -7,7 +7,8 @@ Welcome! This is my code for my school project: project-tech. During this projec
 
  I am making an interaction for a matching app. The concept is like a tinder for dogs and owners. Dogs that have a hard time finding an owner can be signed up by the dog shelter. The next step is for users to start swiping. When they see a dog they like, they can give them a bone (meaning you will like them). When they don't like a dog, they just swipe away. All the liked dogs will be shown in a list. There you can chat with them (totally realistic, right?) and you will be provided with more contact info. The interaction I will be working on is the "liking" interaction.
 
- <!-- TODO: add features -->
+![DoggoSwipe banner](./files/concept-01.png)
+
 
  ## Build with:
  * [Node.js](https://nodejs.org/en/)
@@ -44,7 +45,7 @@ Want to start up my app and you have no idea how? Follow the next steps! (if you
 ---
 # 📊 Database
 
-The database used for this app is [MongoDB](https://www.mongodb.com/). The database consist out of collections of dog profiles and user profiles.
+The database used for this app is [MongoDB](https://www.mongodb.com/). The database consist out of collections of dog profiles.
 
 <!-- TODO: data structure diagram -->
 
