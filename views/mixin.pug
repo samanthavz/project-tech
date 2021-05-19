@@ -3,12 +3,17 @@ mixin link(href, name)
 
 
 mixin match(imgSrc, name, content, price)
-  li 
-    img(src=imgSrc, alt="profile picture")
-    div 
-      h2= name
-      p(class="content")= content 
-    p= price
+    li 
+      div(class="listContainer")
+        img(src=imgSrc, alt="profile picture")
+        div 
+          h2= name
+          p(class="content")= content 
+        p= price
+      div(class="delete")
+        form(action="post")
+          button delete
+
 
 mixin info 
   div(class="overlay" id="overlay")

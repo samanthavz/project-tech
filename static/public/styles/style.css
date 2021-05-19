@@ -19,6 +19,7 @@ html {
 
 body {
   min-height: 100vh;
+  height: 100vh;
   min-width: 100vw;
   color: #ff7d7d;
   background-image: url(./images/background1.png);
@@ -26,6 +27,7 @@ body {
   background-size: cover;
   user-select: none;
   overflow: hidden;
+  overflow-y: hidden;
   position: relative;
 }
 
@@ -160,7 +162,9 @@ nav a:hover {
     rgba(160, 75, 92, 0.247) 0px 2px 16px 0px;
   margin: 0 1.5em;
   text-align: left;
+  z-index: 2;
 }
+
 
 .home button {
   margin-top: 1em;
@@ -247,8 +251,8 @@ nav a:hover {
   background-repeat: no-repeat;
   top: 15vh;
   right: -10vw;
-  height: 60vh;
-  width: 100vw;
+  height: 70vh;
+  width: 110vw;
   padding: 2em 0;
 }
 
@@ -309,6 +313,11 @@ nav a:hover {
   position: absolute;
 }
 
+.disliked {
+  font-weight: 600;
+}
+
+
 /* ------------------------------------- */
 /*            Matches.pug                */
 /* ------------------------------------- */
@@ -332,11 +341,21 @@ ul::-webkit-scrollbar {
 }
 
 ul li {
-  border-top: 0.1em solid rgba(255, 163, 163, 0.247);
+  /* border-top: 0.1em solid rgba(255, 163, 163, 0.247);
   padding: 1em 1em 1em 0;
   display: flex;
   margin: 0 2.2em;
   align-items: center;
+  width: 120vw; */
+  overflow-x: scroll; 
+  display: flex;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+ul li::-webkit-scrollbar {
+  display: none;
 }
 
 ul li:first-of-type {
@@ -363,6 +382,42 @@ li div {
 
 .content {
   color: #ff7d7dbb;
+}
+
+.delete {
+  margin: 0;
+  padding: 0;
+  max-width: 5em;
+  margin-right: -5em;
+  background-color: rgb(255, 47, 47);
+  text-align: center;
+}
+
+.delete button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.1em;
+  margin-top: 50%;
+  color: white;
+  font-weight: 600;
+}
+
+.listContainer {
+  border-top: 0.1em solid rgba(255, 163, 163, 0.247);
+  padding: 1em 1em 1em 0;
+  display: flex;
+  margin: 0 2.2em;
+  align-items: center;
+  overflow-x: scroll;
+}
+
+.filter {
+  width: 80vw; 
+  font-size: 1em; 
+  padding: 12px 20px 12px 40px;
+  border: 0.1em solid rgb(255, 126, 126); 
+  border-radius: 1em;
+  margin: 0 10vw 0.8em 10vw; 
 }
 
 /* ------------------------------------- */

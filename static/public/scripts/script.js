@@ -1,31 +1,40 @@
+//check connection
 console.log("script linked");
 
-// const bone = document.getElementById("bone");
+  //info popup
+  const button = document.getElementById("infoButton");
+  const content = document.getElementById("overlay");
+  const closeIt = document.getElementById("close");
 
-// // Bone Listeners
-// bone.addEventListener('dragstart', dragStart);
-// bone.addEventListener("dragend", dragEnd);
+  button.addEventListener("click", showTip);
+  closeIt.addEventListener("click", closeTip);
 
-// // Drag Functions
-// function dragStart() {
-//   console.log('start');
-// }
+  function showTip() {
+    content.style.display = "block";
+  }
 
-// function dragEnd() {
-//   console.log('End');
-// }
+  function closeTip() {
+    content.style.display = "none";
+  }
 
-const button = document.getElementById("infoButton");
-const content = document.getElementById("overlay");
-const closeIt = document.getElementById("close");
 
-button.addEventListener("click", showTip)
-closeIt.addEventListener("click", closeTip);
+  //sound eastereggs
+  const likeButton = document.getElementById("bone");
+  likeButton.addEventListener("click", sound);
 
-function showTip() {
-  content.style.display = "block"
-};
+  const dogImg = document.getElementById("dogImg");
+  dogImg.addEventListener("click", sound2);
 
-function closeTip() {
-  content.style.display = "none"
-};
+  function sound() {
+    var audio = new Audio("./files/nom.mp3");
+    audio.volume = 0.05;
+    audio.play();
+  }
+
+  function sound2() {
+    var audio = new Audio("./files/bark.mp3");
+    audio.volume = 0.1;
+    audio.play();
+  }
+
+

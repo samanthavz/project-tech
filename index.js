@@ -85,7 +85,11 @@ app.get("/home", async (req, res) => {
 app.post("/matches/liked", (req, res) => {
   liked.push(doggoList[0]);
   profile.likedDoggos.push(doggoList[0]);
-  res.redirect("/home");
+
+  setTimeout(redirect, 1500)
+  function redirect(){
+    res.redirect("/home");
+  }
 });
 
 // push disliked doggo's

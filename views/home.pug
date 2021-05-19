@@ -7,7 +7,7 @@ block content
     if doggo
       div(class="cardDiv", draggable="true")
         div(class="imgDiv") 
-          img(src=doggo.imgSrc, class="image", alt="dog photo", height="300px")
+          img(src=doggo.imgSrc, class="image", id="dogImg", alt="dog photo", height="300px")
           p #{doggo.price}
           img(src=doggo.gender, class="gender", alt="gender")
         div(class="info") 
@@ -15,13 +15,13 @@ block content
             h2 #{doggo.name}
             p #{doggo.breed}
           p #{doggo.age} years
-      form(action="/matches/liked", method="post")
+      form(action="/matches/liked", method="post", id="boneheader")
         input(type="hidden", name="userId", value=doggo.userId)
         button(type="submit", id="bone", draggable="true") 
-          img(src="images/bone.png", alt="image of a bone", height="100px")
+          img(src="images/bone.png", alt="image of a bone", height="80px")
       form(action="/matches/disliked", method="post")
         input(type="hidden", name="userId", value=doggo.userId)
-        button(type="submit") weg ermee
+        button(type="submit" class="disliked") Don't click me
     else 
       h2(class="emptyH2") There are currently no doggos that match your preferences..
   
