@@ -43,12 +43,13 @@ const client = new MongoClient(process.env.DB_CONNECT, {
   useNewUrlParser: true,
 });
 
+// connect to client
+const connect = client.connect();
+
 // async function to make sure everything is connected first
 app.get("/home", async (req, res) => {
   doggoList = [];
   try {
-    // wait untill client is connected
-    await client.connect();
     // connect to the database and collection
     const database = client.db("DoggoSwipe");
     const collection = database.collection("Doggos");
@@ -74,7 +75,6 @@ app.get("/home", async (req, res) => {
   } catch (error) {
     console.error(error);
   } finally {
-    client.removeAllListeners();
     res.render("home", { title: "DoggoSwipe", doggo: doggoList[0] });
   }
 });
