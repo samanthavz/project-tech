@@ -7,7 +7,6 @@ const port = 3000;
 // see https://www.npmjs.com/package/dotenv
 dotenv.config();
 
-
 let liked = [];
 let doggoList = [];
 
@@ -80,38 +79,38 @@ app.get("/home", async (req, res) => {
   }
 });
 
-// app.post("/matches", async (req, res) => {
-//   bodyId = Number(req.body.dog);
-//   try {
-//     // connect to the database and collection
-//     const database = await client.db("DoggoSwipe");
-//     const collection = await database.collection("Doggos");
+app.post("/matches/deleted", async (req, res) => {
+  bodyId = Number(req.body.dog);
+  try {
+    // connect to the database and collection
+    const database = await client.db("DoggoSwipe");
+    const collection = await database.collection("Doggos");
 
-//     // delete the doggo
-//     const result = await collection.deleteOne({ userId: bodyId });
+    // delete the doggo
+    const result = await collection.deleteOne({ userId: bodyId });
 
-//     liked.forEach((dog) => { 
-//       if (dog.userId == bodyId) {
-//         let index = liked.indexOf(dog)
-//         if (index > -1) {
-//           liked.splice(index, 1);
-//         }
-//       }
-//     });
-//   } catch(error) {
-//     console.error(error);
-//   } finally {
-//     res.redirect("/matches");
-//   }
-// });
+    liked.forEach((dog) => {
+      if (dog.userId == bodyId) {
+        let index = liked.indexOf(dog);
+        if (index > -1) {
+          liked.splice(index, 1);
+        }
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  } finally {
+    res.redirect("/matches");
+  }
+});
 
 // push liked doggo's
 app.post("/matches/liked", (req, res) => {
   liked.push(doggoList[0]);
   profile[0].likedDoggos.push(doggoList[0]);
 
-  setTimeout(redirect, 1500)
-  function redirect(){
+  setTimeout(redirect, 1500);
+  function redirect() {
     res.redirect("/home");
   }
 });
@@ -122,9 +121,10 @@ app.post("/matches/disliked", (req, res) => {
   res.redirect("/home");
 });
 
+
 //other routes
 app.get("/matches", (req, res) => {
-  res.render("matches", { title: "Doggo Matches", liked});
+  res.render("matches", { title: "Doggo Matches", liked });
 });
 
 app.get("/welcome", (req, res) => {
@@ -142,5 +142,3 @@ app.use((req, res, next) => {
 app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
-
-

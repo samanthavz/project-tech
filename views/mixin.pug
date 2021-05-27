@@ -11,7 +11,7 @@ mixin match(imgSrc, name, content, price, imgId)
           p(class="content")= content 
         p= price
       div(class="delete")
-        form(action="/matches", method="post")
+        form(action="/matches/deleted", method="post")
           button(type="submit") delete
           input(type="hidden", name="dog", value=imgId)
 
