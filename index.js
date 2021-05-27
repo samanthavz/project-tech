@@ -80,30 +80,30 @@ app.get("/home", async (req, res) => {
   }
 });
 
-app.post("/matches", async (req, res) => {
-  bodyId = Number(req.body.dog);
-  try {
-    // connect to the database and collection
-    const database = await client.db("DoggoSwipe");
-    const collection = await database.collection("Doggos");
+// app.post("/matches", async (req, res) => {
+//   bodyId = Number(req.body.dog);
+//   try {
+//     // connect to the database and collection
+//     const database = await client.db("DoggoSwipe");
+//     const collection = await database.collection("Doggos");
 
-    // delete the doggo
-    const result = await collection.deleteOne({ userId: bodyId });
+//     // delete the doggo
+//     const result = await collection.deleteOne({ userId: bodyId });
 
-    liked.forEach((dog) => { 
-      if (dog.userId == bodyId) {
-        let index = liked.indexOf(dog)
-        if (index > -1) {
-          liked.splice(index, 1);
-        }
-      }
-    });
-  } catch(error) {
-    console.error(error);
-  } finally {
-    res.redirect("/matches");
-  }
-});
+//     liked.forEach((dog) => { 
+//       if (dog.userId == bodyId) {
+//         let index = liked.indexOf(dog)
+//         if (index > -1) {
+//           liked.splice(index, 1);
+//         }
+//       }
+//     });
+//   } catch(error) {
+//     console.error(error);
+//   } finally {
+//     res.redirect("/matches");
+//   }
+// });
 
 // push liked doggo's
 app.post("/matches/liked", (req, res) => {
