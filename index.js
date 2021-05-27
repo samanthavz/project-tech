@@ -11,14 +11,7 @@ dotenv.config();
 let liked = [];
 let doggoList = [];
 
-let profile = {
-  name: "Samantha",
-  lastname: "van Zandwijk",
-  age: "19",
-  likedDoggos: [],
-  dislikedDoggos: [],
-  maxAge: 10,
-};
+let profile = [];
 
 //pug
 app.use(express.static(__dirname + "/static/public/"));
@@ -50,25 +43,33 @@ const connect = client.connect();
 app.get("/home", async (req, res) => {
   doggoList = [];
   try {
-    // connect to the database and collection
+    // connect to the database and collection for doggo and user
     const database = client.db("DoggoSwipe");
     const collection = database.collection("Doggos");
-    // fetch the data
+    const collection2 = database.collection("Users");
+
+    // fetch the data user
+    const cursor2 = await collection2.find({});
+    await cursor2.forEach((user) => {
+      profile.push(user);
+    });
+
+    // fetch the data doggos
     const cursor = collection.find({});
     // wait for data
     await cursor.forEach((doc) => {
       let push = false;
-      profile.likedDoggos.forEach(function (dog) {
+      profile[0].likedDoggos.forEach(function (dog) {
         if (doc.userId === dog.userId) {
           push = true;
         }
       });
-      profile.dislikedDoggos.forEach(function (dog) {
+      profile[0].dislikedDoggos.forEach(function (dog) {
         if (doc.userId === dog.userId) {
           push = true;
         }
       });
-      if (!push && doc.age <= profile.maxAge) {
+      if (!push && doc.age <= profile[0].maxAge) {
         doggoList.push(doc);
       }
     });
@@ -107,7 +108,7 @@ app.post("/matches", async (req, res) => {
 // push liked doggo's
 app.post("/matches/liked", (req, res) => {
   liked.push(doggoList[0]);
-  profile.likedDoggos.push(doggoList[0]);
+  profile[0].likedDoggos.push(doggoList[0]);
 
   setTimeout(redirect, 1500)
   function redirect(){
@@ -117,7 +118,7 @@ app.post("/matches/liked", (req, res) => {
 
 // push disliked doggo's
 app.post("/matches/disliked", (req, res) => {
-  profile.dislikedDoggos.push(doggoList[0]);
+  profile[0].dislikedDoggos.push(doggoList[0]);
   res.redirect("/home");
 });
 
