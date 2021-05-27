@@ -2,7 +2,7 @@ mixin link(href, name)
   a(class!=attributes.class href=href)= name
 
 
-mixin match(imgSrc, name, content, price)
+mixin match(imgSrc, name, content, price, imgId)
     li 
       div(class="listContainer")
         img(src=imgSrc, alt="profile picture")
@@ -11,8 +11,9 @@ mixin match(imgSrc, name, content, price)
           p(class="content")= content 
         p= price
       div(class="delete")
-        form(action="post")
-          button delete
+        form(action="/matches", method="post")
+          button(type="submit") delete
+          input(type="hidden", name="dog", value=imgId)
 
 
 mixin info 

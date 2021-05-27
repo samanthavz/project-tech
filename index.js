@@ -79,7 +79,23 @@ app.get("/home", async (req, res) => {
   }
 });
 
+app.post("/matches", async (req, res) => {
+  let bodyId = req.body.dog;
+  console.log(bodyId)
+  try {
+    // connect to the database and collection
+    const database = await client.db("DoggoSwipe");
+    const collection = await database.collection("Doggos");
 
+    // delete the doggo
+    const cursor = await collection.findOne({userId: bodyId});
+    console.log(cursor);
+  } catch(error) {
+    console.error(error);
+  } finally {
+    res.redirect("/matches");
+  }
+});
 
 // push liked doggo's
 app.post("/matches/liked", (req, res) => {
@@ -100,7 +116,7 @@ app.post("/matches/disliked", (req, res) => {
 
 //other routes
 app.get("/matches", (req, res) => {
-  res.render("matches", { title: "Doggo Matches", liked });
+  res.render("matches", { title: "Doggo Matches", liked});
 });
 
 app.get("/welcome", (req, res) => {
@@ -118,3 +134,5 @@ app.use((req, res, next) => {
 app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+
