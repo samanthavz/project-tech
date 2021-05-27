@@ -80,16 +80,23 @@ app.get("/home", async (req, res) => {
 });
 
 app.post("/matches", async (req, res) => {
-  let bodyId = req.body.dog;
-  console.log(bodyId)
+  bodyId = Number(req.body.dog);
   try {
     // connect to the database and collection
     const database = await client.db("DoggoSwipe");
     const collection = await database.collection("Doggos");
 
     // delete the doggo
-    const cursor = await collection.findOne({userId: bodyId});
-    console.log(cursor);
+    const result = await collection.deleteOne({ userId: bodyId });
+
+    liked.forEach((dog) => { 
+      if (dog.userId == bodyId) {
+        let index = liked.indexOf(dog)
+        if (index > -1) {
+          liked.splice(index, 1);
+        }
+      }
+    });
   } catch(error) {
     console.error(error);
   } finally {
