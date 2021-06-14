@@ -24,27 +24,28 @@ console.log("script linked");
 
   //sound eastereggs
   const likeButton = document.getElementById("bone");
-  likeButton.addEventListener("click", sound);
-  likeButton.addEventListener("mouseover", wiggle);
-
   const dogImg = document.getElementById("dogImg");
-  dogImg.addEventListener("click", sound2);
 
-  function sound() {
-    var audio = new Audio("./files/nom.mp3");
+  likeButton.addEventListener("click", () => {
+    sound("nom");
+  });
+
+  likeButton.addEventListener("mouseover", () => {
+    sound("sparkle");
+  });
+  
+  dogImg.addEventListener("click", () => {
+    sound("bark");
+  });
+
+  //audio component
+  function sound(file) {
+    let source = "./files/" + file + ".mp3";
+    let audio = new Audio(source);
     audio.volume = 0.05;
     audio.play();
-  }
+  };
 
-  function wiggle() {
-
-  }
-
-  function sound2() {
-    var audio = new Audio("./files/bark.mp3");
-    audio.volume = 0.1;
-    audio.play();
-  }
 
 const infoDog = document.getElementById("infodog")
 
