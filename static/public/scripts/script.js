@@ -21,6 +21,7 @@ console.log("script linked");
   //sound eastereggs
   const likeButton = document.getElementById("bone");
   likeButton.addEventListener("click", sound);
+  likeButton.addEventListener("mouseover", wiggle);
 
   const dogImg = document.getElementById("dogImg");
   dogImg.addEventListener("click", sound2);
@@ -31,10 +32,16 @@ console.log("script linked");
     audio.play();
   }
 
+  function wiggle() {
+    
+  }
+
   function sound2() {
     var audio = new Audio("./files/bark.mp3");
     audio.volume = 0.1;
     audio.play();
   }
+
+  
 
 

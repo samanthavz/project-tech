@@ -18,7 +18,7 @@ block content
       form(action="/matches/liked", method="post", id="boneheader")
         input(type="hidden", name="userId", value=doggo.userId)
         button(type="submit", id="bone", draggable="true") 
-          img(src="images/bone.png", alt="image of a bone", height="80px")
+          img(src="images/bone.png", alt="image of a bone", class="boneimg", height="80px")
       form(action="/matches/disliked", method="post")
         input(type="hidden", name="userId", value=doggo.userId)
         button(type="submit" class="disliked") Don't click me
