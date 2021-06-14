@@ -1,10 +1,14 @@
 doctype html
 html
+  //- include head
   include includes/head.pug
   body(class="template")
+    //- info overlay mixin
     +info
     h1 #{title}
+    //- block where the content is added for each page
     block content
+    //- navigation bar
     nav 
         div
             a(href="/home")

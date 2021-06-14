@@ -475,6 +475,12 @@ li div {
   }
 }
 
+.infoContent {
+  max-height: 20em;
+  left: 10vw;
+  top: 25vh;
+}
+
 @media only screen and (min-width: 1000px) and (max-width: 1100px) {
   .boneimg {
     height: 10em;

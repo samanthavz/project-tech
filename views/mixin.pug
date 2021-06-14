@@ -1,7 +1,8 @@
+//- link mixin
 mixin link(href, name)
   a(class!=attributes.class href=href)= name
 
-
+//- list item mixin
 mixin match(imgSrc, name, content, price, imgId)
     li 
       div(class="listContainer")
@@ -15,7 +16,7 @@ mixin match(imgSrc, name, content, price, imgId)
           button(type="submit") delete
           input(type="hidden", name="dog", value=imgId)
 
-
+//- tip overlay mixin
 mixin info 
   div(class="overlay" id="overlay")
     div(class="tip infoContent")
@@ -25,4 +26,4 @@ mixin info
       p To move on:
       p Swipe away the card
       button(id="close") got it 
-    img(src="images/dog.png" alt="picture of dog" class="tip infoImg")
+    img(src="images/dog.png" id="infodog" alt="picture of dog" class="tip infoImg")

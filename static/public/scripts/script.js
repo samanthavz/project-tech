@@ -1,3 +1,7 @@
+//sources:
+//sound effects: https://www.myinstants.com/index/nl/
+
+
 //check connection
 console.log("script linked");
 
@@ -33,7 +37,7 @@ console.log("script linked");
   }
 
   function wiggle() {
-    
+
   }
 
   function sound2() {
@@ -42,6 +46,18 @@ console.log("script linked");
     audio.play();
   }
 
-  
+const infoDog = document.getElementById("infodog")
+
+//jumping dog
+setInterval(hop, 4000);
+
+function hop() {
+  infoDog.style.marginBottom = "3em"
+  setTimeout(down, 100);
+}
+
+function down () {
+  infoDog.style.marginBottom = "0";
+}
 
 
