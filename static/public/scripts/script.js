@@ -62,7 +62,7 @@ function down () {
 }
 
 document.getElementById("del").addEventListener("click", () => {
-  alert("Did you really just delete a dog???!?!?1/1!/");
+  alert("Wow. Did you really just delete a dog???!?!?1/1!/");
 })
 
 
