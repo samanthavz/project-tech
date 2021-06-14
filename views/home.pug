@@ -24,7 +24,7 @@ block content
       //- dislike
       form(action="/matches/disliked", method="post")
         input(type="hidden", name="userId", value=doggo.userId)
-        button(type="submit" class="disliked") Don't click me
+        button(type="submit", class="disliked", id="del") Don't click me
     else 
       h2(class="emptyH2") There are currently no doggos that match your preferences..
       //- als er geen honden gefetched zijn uit de db
